@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1>Welcome, {{ jobseeker.full_name }}!</h1>
+    <p>Thank you for submitting your information. You can view and manage your resumes below:</p>
+    <ul>
+        {% for resume in resumes %}
+            <li>{{ resume.resume }}</li>
+        {% endfor %}
+    </ul>
+    <hr>
+    <h2>Dashboard</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Profile</h5>
+                    <p class="card-text">View and edit your personal information.</p>
+                    <a href="#" class="btn btn-primary">Go to Profile</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Resumes</h5>
+                    <p class="card-text">View and manage your resumes.</p>
+                    <a href="#" class="btn btn-primary">Go to Resumes</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Job Search</h5>
+                    <p class="card-text">Find and apply for job opportunities.</p>
+                    <a href="#" class="btn btn-primary">Go to Job Search</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

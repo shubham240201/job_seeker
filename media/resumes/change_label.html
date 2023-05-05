@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>change label</title>
+</head>
+<body>
+	<input type="button"  id="b1" onclick="abc()" value="click">
+	<hr>
+
+	<img src="bulof.jpeg" id="myimage" width="90" height="90">
+	<input type="button" id="btn" value="ON" onclick="onoff()">
+	<p> click the buton to check bulbe</p>
+
+</body>
+<script type="text/javascript">
+	
+	//function abc() {
+		//document.getElementById("b1").value="shubham";
+	//}
+function onoff(){
+	var img=document.getElementById("myimage");
+	var btn=document.getElementById("btn");
+
+	if(btn.value=="ON"){
+		img.src="bulon.jpeg";
+		btn.value="OFF";
+
+	}
+	else{
+		img.src="bulof.jpeg";
+		btn.value="ON";
+	}
+}
+
+</script>
+</html>
