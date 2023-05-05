@@ -10,7 +10,7 @@ def to_path(directory):
         directory = directory()
     return pathlib.Path(directory)
 
-def home(request):
+def index(request):
     if request.method == 'POST':
         jobseeker_form = JobSeekerForm(request.POST)
         resume_form = ResumeForm(request.POST, request.FILES)
@@ -19,12 +19,12 @@ def home(request):
             resume = resume_form.save(commit=False)
             resume.jobseeker = jobseeker
             resume.save()
-            messages.suceess(request,f'Thank you for submitting your information,{jobseeker.full_name}!')
+            messages.success(request,f'Thank you for submitting your information,{jobseeker.full_name}!')
             return redirect('dashboard')
     else:
         jobseeker_form = JobSeekerForm()
         resume_form = ResumeForm()
-    return render(request, 'home.html', {'jobseeker_form': jobseeker_form, 'resume_form': resume_form})
+    return render(request, 'index.html', {'jobseeker_form': jobseeker_form, 'resume_form': resume_form})
 
 def dashboard(request):
     jobseeker = JobSeeker.objects.get(pk=request.user.pk)
